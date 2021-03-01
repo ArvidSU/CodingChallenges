@@ -15,16 +15,18 @@ def RasmusTrorHanECool(number):
     print(OrderedList)
     
     # Find the largest number in list that is less than the given number.
-    a = 0
-    b = 0
-    for num in OrderedList:
-        if (num > a and num < number):
-            a = num
+    index = 0
 
-    for num in OrderedList:
-        b = num
-        if (a + b == number):
-            break
-    return [number, a, b]
+    # Checks list from 'index' if any value ahead added to number at index equals 'number'
+    # Worst case, non are found
+    while index < len(OrderedList):
+        num = OrderedList[index]
+        for i in range(index, len(OrderedList)):
+            print(num, OrderedList[i], num + OrderedList[i])
+            if num + OrderedList[i] == number:
+                return '%s + %s = %s' % (num, OrderedList[i], number)
 
-print(RasmusTrorHanECool(6))
+        index += 1
+
+
+print(RasmusTrorHanECool(9))
