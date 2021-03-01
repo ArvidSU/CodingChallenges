@@ -13,20 +13,19 @@ def generateOL(length):
 def RasmusTrorHanECool(number):
     OrderedList = generateOL(number)
     print(OrderedList)
-    
-    # Find the largest number in list that is less than the given number.
-    index = 0
 
-    # Checks list from 'index' if any value ahead added to number at index equals 'number'
-    # Worst case, non are found
-    while index < len(OrderedList):
-        num = OrderedList[index]
-        for i in range(index, len(OrderedList)):
-            print(num, OrderedList[i], num + OrderedList[i])
-            if num + OrderedList[i] == number:
-                return '%s + %s = %s' % (num, OrderedList[i], number)
+    # Largest number not equaling 'number'
+    a = 0
 
-        index += 1
+    count = 0
+    while count < len(OrderedList):
+        print(count + 1)
+        a = OrderedList[-1 - count]
+        if (number - a) in OrderedList:
+            b = OrderedList[OrderedList.index(number - a)]
+            return '%s + %s = %s' % (a, b, number)
+        count += 1
+
 
 
 print(RasmusTrorHanECool(9))
