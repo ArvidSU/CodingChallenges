@@ -10,22 +10,21 @@ def generateOL(length):
     return OrderedList
 
 # Finds two integers in an ordered list that added together equals given number
-def RasmusTrorHanECool(number):
-    OrderedList = generateOL(number)
+def RasmusTrorHanECool(OrderedList, number):
+    #OrderedList = generateOL(number)
     print(OrderedList)
+    print("Number: ", number)
 
-    # Largest number not equaling 'number'
     a = 0
+    for i in range(1, len(OrderedList)):
+        if (OrderedList[-i] < number):
+            a = OrderedList[-i]
+    print(a)
+    for i in range(0, len(OrderedList)):
+        if (OrderedList[i] + a == number and a != number and OrderedList[i] != number):
+            return OrderedList[i], a
 
-    count = 0
-    while count < len(OrderedList):
-        print(count + 1)
-        a = OrderedList[-1 - count]
-        if (number - a) in OrderedList:
-            b = OrderedList[OrderedList.index(number - a)]
-            return '%s + %s = %s' % (a, b, number)
-        count += 1
-
-
-
-print(RasmusTrorHanECool(9))
+print(RasmusTrorHanECool([2,3,4,7], 2))
+print(RasmusTrorHanECool([2,3,4,7], 7))
+print(RasmusTrorHanECool([4,5,7,9,13], 9))
+print(RasmusTrorHanECool([4,5,7,9,13], 12))
