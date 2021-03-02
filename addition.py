@@ -10,7 +10,7 @@ def generateOL(length):
     return OrderedList
 
 # Finds two integers in an ordered list that added together equals given number
-def RasmusTrorHanECool(OrderedList, number):
+def findNumbers(OrderedList, number):
     print(OrderedList)
     print("Number: ", number)
 
@@ -29,4 +29,4 @@ def RasmusTrorHanECool(OrderedList, number):
         if a + b == number:
             return a, b
 
-print(RasmusTrorHanECool(generateOL(random.randint(4,15)), random.randint(2,15)))
+print(findNumbers(generateOL(random.randint(4,15)), random.randint(2,15)))
